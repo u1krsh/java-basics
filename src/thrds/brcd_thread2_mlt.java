@@ -11,6 +11,7 @@ class runna implements Runnable{
             try {
                 Thread.sleep(1000);
 //                System.out.println(Thread.currentThread().getName() + " "+ i);
+
                 System.out.println(text);
 
             }

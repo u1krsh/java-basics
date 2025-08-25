@@ -21,6 +21,7 @@ public class brcd_thread1 {
         Scanner scn = new Scanner(System.in);
         thrdd runnable = new thrdd();
         Thread thread = new Thread(runnable);
+
         thread.setDaemon(true);//will end program when main thread ends
         thread.start();
         System.out.println("You have 5 seconds to enter your name");
