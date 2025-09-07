@@ -1,0 +1,8 @@
+<servlet>
+    <servlet-name>c/servlet-name>
+    <servlet-class>servlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>c</servlet-name>
+<url-pattern>/servlet</url-pattern>
+</servlet-mapping>
