@@ -114,6 +114,21 @@ public class LL {
         return val;
     }
 
+    public void insertUsingRecursion(int val, int ind){
+        head = insertUsingRecursion(val,ind,head);
+    }
+
+    private Node insertUsingRecursion(int val, int ind, Node node){
+        if(ind == 0) {
+            Node temp = new Node(node, val);
+            size++;
+            return temp;
+        }
+       node.next =  insertUsingRecursion(val,ind-1,node.next);
+        return node;
+
+    }
+
     private class Node {
         private int val;
         private Node next;
@@ -127,6 +142,9 @@ public class LL {
             this.val = val;
         }
     }
+
+    // Questions
+
 
 
 
