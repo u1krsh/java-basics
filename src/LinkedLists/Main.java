@@ -12,6 +12,9 @@ public class Main {
     LinkedList.print();
     LinkedList.deleteAtEnd();
     LinkedList.insertUsingRecursion(2,3);
+    LinkedList.insert(2,3);
+    LinkedList.print();
+    LinkedList.removeDupes();
     LinkedList.print();
 
 //        DLL Double = new DLL();

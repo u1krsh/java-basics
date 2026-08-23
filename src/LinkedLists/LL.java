@@ -146,6 +146,23 @@ public class LL {
     // Questions
 
 
+    public void  removeDupes(){
+        Node curr= head;
+        while(curr.next != null) {
+            if (curr.val == curr.next.val) {
+                curr.next = curr.next.next;
+                size--;
+            }
+            else {
+                curr =curr.next;
+            }
+
+        }
+        tail = curr;
+        tail.next = null;
+    }
+
+
 
 
 
