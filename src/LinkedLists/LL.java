@@ -296,6 +296,19 @@ public class LL {
     }
 
 
+    // middleNode
+
+public Node middleNode(Node head){
+        Node hare =head;
+        Node turtle = head;
+
+        while(hare != null && hare.next != null){
+            turtle = turtle.next;
+            hare = hare.next.next;
+        }
+        return turtle;
+}
+
 
 
 
