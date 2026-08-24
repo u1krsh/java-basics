@@ -295,29 +295,78 @@ public class LL {
         return ans;
     }
 
-
-    // middleNode
-
-public Node middleNode(Node head){
-        Node hare =head;
-        Node turtle = head;
-
-        while(hare != null && hare.next != null){
-            turtle = turtle.next;
-            hare = hare.next.next;
+    private void revereRecurion(Node node){
+        if(node == tail){
+            head = tail;
+            return;
         }
-        return turtle;
-}
+        revereRecurion(node.next);
+        tail.next = node;
+        tail = node;
+        tail.next = null;
+    }
+    //inplace reveral
 
 
+    public void revereItr(){
+        if(size<2){
+            return;
+        }
+        Node prev = null;
+        Node pres = head;
+        Node nex = pres.next;
+
+        while(pres != null){
+            pres.next = prev;
+            prev = pres;
+            pres = nex;
+            if(nex != null){
+                nex=nex.next;
+            }
+        }
+        head = prev;
+    }
 
 
+    //reverse linked list II
+
+    public Node reverseBetween(Node head, int left, int right) {
+
+        if(left==right) return head;
+
+        //skip the first n-1 nodes
+        Node curr = head;
+        Node prev = null;
+        for(int i = 0 ;curr != null && i<left-1;i++){
+            prev = curr;
+            curr = curr.next;
+        }
+        Node last = prev;
+        Node newEnd = curr;
 
 
+        //reverse between left and right
+        Node nex = curr.next;
+        for(int i = 0;curr != null && i<(right-left)+1;i++){
+            curr.next = prev;
+            prev = curr;
+            curr = nex;
+            if(nex != null) {
+                nex = nex.next;
+            }
+        }
 
+        if(last != null){
+            last.next = prev;
+        }
+        else{
+            head = prev;
+        }
 
+        newEnd.next = curr;
 
-
+        return head;
+    }
 
 
 }

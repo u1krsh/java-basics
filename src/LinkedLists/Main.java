@@ -2,20 +2,20 @@ package LinkedLists;
 
 public class Main {
     public static void main(String[] args) {
-    LL LinkedList = new LL();
-
-    LinkedList.insertFirst(6);
-    LinkedList.insertFirst(5);
-    LinkedList.insertAtend(7);
-    LinkedList.insert(69,2);
-
-    LinkedList.print();
-    LinkedList.deleteAtEnd();
-    LinkedList.insertUsingRecursion(2,3);
-    LinkedList.insert(2,3);
-    LinkedList.print();
-    LinkedList.removeDupes();
-    LinkedList.print();
+//    LL LinkedList = new LL();
+//
+//    LinkedList.insertFirst(6);
+//    LinkedList.insertFirst(5);
+//    LinkedList.insertAtend(7);
+//    LinkedList.insert(69,2);
+//
+//    LinkedList.print();
+//    LinkedList.deleteAtEnd();
+//    LinkedList.insertUsingRecursion(2,3);
+//    LinkedList.insert(2,3);
+//    LinkedList.print();
+//    LinkedList.removeDupes();
+//    LinkedList.print();
 
 //        DLL Double = new DLL();
 //        Double.insertFirst(2);
@@ -37,6 +37,14 @@ public class Main {
 //        circ.delete(2);
 //        circ.print();
 
+        practice linkedList = new practice();
+
+        linkedList.insertAtBegin(3);
+        linkedList.insertAtBegin(2);
+        linkedList.insertAtBegin(1);
+        linkedList.insertAtEnd(4);
+        linkedList.insertAtInd(69,1);
+        linkedList.print();
 
     }
 }
