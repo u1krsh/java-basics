@@ -1,5 +1,7 @@
 package LinkedLists;
 
+import java.util.List;
+
 public class LL {
     private Node head;
     private Node tail;
@@ -145,7 +147,7 @@ public class LL {
 
     // Questions
 
-
+    // remove dupes
     public void  removeDupes(){
         Node curr= head;
         while(curr.next != null) {
@@ -161,6 +163,145 @@ public class LL {
         tail = curr;
         tail.next = null;
     }
+
+    //merge sorted
+
+    public static LL mergeSorted(LL first, LL second){
+        Node head1 = first.head;
+        Node head2 = second.head;
+
+        LL answer = new LL();
+        while(head1 != null && head2 != null){
+            if(head1.val < head2.val){
+                answer.insertAtend(head1.val);
+                head1 = head1.next;
+            }
+            else{
+                answer.insertAtend(head2.val);
+                head2 = head2.next;
+            }
+        }
+
+        while(head1 != null){
+            answer.insertAtend(head1.val);
+            head1 = head1.next;
+        }
+        while (head2 != null){
+            answer.insertAtend(head2.val);
+            head2 = head2.next;
+        }
+        return answer;
+    }
+
+
+
+    // hasCycle
+
+    public  boolean hasCycle(){
+        Node hare = head;
+
+        Node turtle= head;
+
+        while(hare != null && hare.next != null){
+            turtle = turtle.next;
+            hare = hare.next.next;
+            if(hare == turtle){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //cycle length
+
+    public int lengthCycle(Node head){
+        Node hare = head;
+
+        Node turtle= head;
+
+        while(hare != null && hare.next != null){
+            turtle = turtle.next;
+            hare = hare.next.next;
+            if(hare == turtle){
+                Node temp = turtle;
+                int lenght = 0;
+                do{
+                    temp = temp.next;
+                    lenght++;
+                }while (temp != turtle);
+                return lenght;
+
+            }
+        }
+        return 0;
+    }
+
+    public Node cycleStartNode(){
+        Node hare = head;
+        int length = 0;
+        Node turtle= head;
+
+        while(hare != null && hare.next != null){
+            turtle = turtle.next;
+            hare = hare.next.next;
+            if(hare == turtle){
+
+                length = lengthCycle(turtle);
+                break;
+            }
+        }
+        // find start
+
+        Node first = head;
+        Node second = head;
+
+        while(length > 0){
+            second = second.next;
+            length--;
+        }
+        //keep moving both forward
+
+        while(first != second){
+            first = first.next;
+            second= second.next;
+        }
+        return first;
+
+    }
+
+
+    public boolean isHappy (int n){
+        int slow = n;
+        int fast = n;
+
+        do{
+            slow = findSquare(slow);
+            fast = findSquare(findSquare(fast));
+        }while(slow != fast);
+
+        if(slow==1) return true;
+        else return false;
+
+
+    }
+
+    private int findSquare(int n){
+        int ans = 0;
+        while(n>0){
+            int remo = n %10;
+            ans += remo * remo;
+            n = n/10;
+        }
+        return ans;
+    }
+
+
+
+
+
+
+
+
 
 
 
