@@ -367,6 +367,110 @@ public class LL {
 
         return head;
     }
+    public Node middleNode(Node head) {
+        Node hare = head;
+        Node turtle = head;
+        while(hare != null && hare.next != null){
+            turtle = turtle.next;
+            hare = hare.next.next;
+        }
 
+        return turtle;
+    }
+    public Node reverseList(Node head) {
+        if(head==null) return null;
+        Node prev = null;
+        Node pres = head;
+        Node nex = pres.next;
+
+        while(pres != null){
+            pres.next = prev;
+            prev = pres;
+            pres = nex;
+            if(nex != null){
+                nex=nex.next;
+            }
+        }
+        return prev ;
+    }
+    //pallindrome
+    public boolean isPalindrome(Node head) {
+        Node mid = middleNode(head);
+        Node headSecond = reverseList(mid);
+        Node temp = headSecond;
+        while (head != null && headSecond != null){
+            if(head.val != headSecond.val){
+                break;
+            }
+            head=head.next;
+            headSecond = headSecond.next;
+        }
+        reverseList(temp);
+        return head == null || headSecond == null;
+    }
+
+
+    //reorder list
+    public void reorderList(Node head) {
+        if(head==null || head.next == null) return;
+
+        Node mid = middleNode(head);
+        Node hs = reverseList(mid);
+        Node hf = head;
+        while(hf != null && hs != null) {
+            Node temp1 = hf.next;
+            hf.next = hs;
+            hf = temp1;
+
+            temp1 = hs.next;
+            hs.next = hf;
+            hs = temp1;
+        }
+        if(hf != null){
+            hf.next = null;
+        }
+    }
+
+
+    //reorder
+
+    public Node reverseKGroup(Node head, int k) {
+        if(k <= 1 || head == null){
+            return head;
+        }
+        Node curr = head;
+        Node prev = null;
+        while (true) {
+
+            Node last = prev;
+            Node newEnd = curr;
+
+
+            //reverse between left and right
+            Node nex = curr.next;
+            for (int i = 0; curr != null && i < k ; i++) {
+                curr.next = prev;
+                prev = curr;
+                curr = nex;
+                if (nex != null) {
+                    nex = nex.next;
+                }
+            }
+
+            if (last != null) {
+                last.next = prev;
+            } else {
+                head = prev;
+            }
+
+            newEnd.next = curr;
+            if(curr == null){
+                break;
+            }
+
+            prev = newEnd;
+        }
+        return head;
+    }
 
 }
