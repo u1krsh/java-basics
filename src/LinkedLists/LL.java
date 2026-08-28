@@ -1,5 +1,6 @@
 package LinkedLists;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class LL {
@@ -10,7 +11,6 @@ public class LL {
     public LL() {
         this.size = 0;
     }
-
 
     public void insertFirst(int val){
         Node node = new Node(val);

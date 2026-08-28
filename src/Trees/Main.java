@@ -13,5 +13,6 @@ public class Main {
         int[] nums ={3,5,4,5,7,2,9,0};
         bst.populate(nums);
         bst.print();
+        System.out.println(bst.isBalanced());
     }
 }
