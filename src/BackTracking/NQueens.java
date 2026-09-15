@@ -58,7 +58,7 @@ public class NQueens {
         return true;
     }
 
-    private static void printB(boolean[][] board) {
+    static void printB(boolean[][] board) {
         for (boolean[] row : board){
             for(boolean ele:row){
                 if(ele){
